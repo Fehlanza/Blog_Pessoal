@@ -42,8 +42,8 @@ public class UserLogin {
 		this.token = token;
 	} 
 	
-	
-	
-	
-	
+	public void setId(long id) {
+		// TODO Auto-generated method stub
+		
+	}
 }
