@@ -46,9 +46,16 @@ import com.generation.blogpessoal.service.UsuarioService;
 
 
 	    @PostMapping("/logar")
-	    public ResponseEntity<UserLogin> login(@RequestBody Optional<UserLogin> usuarioLogin) {
+	    public ResponseEntity<UserLogin> Autentication(@RequestBody Optional<UserLogin> usuarioLogin) {
 	        return usuarioService.logarUsuario(usuarioLogin)
 	            .map(resposta -> ResponseEntity.ok(resposta))
 	            .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
-	    }}
+	    }
+	  
+	    @PostMapping("/cadastrar")
+	    public ResponseEntity<Optional<Usuario>> Post(@RequestBody Usuario usuario){
+	    	return ResponseEntity.status(HttpStatus.CREATED)
+	    			.body(usuarioService.cadastrarUsuario(usuario));
+	    }
+}
 
